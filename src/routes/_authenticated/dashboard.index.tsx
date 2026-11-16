@@ -5,9 +5,9 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/dashboard/")({
   head: () => ({ meta: [
-    { title: "Visão geral — Nexora AI" },
-    { name: "description", content: "Acompanhe conversas, clientes e resultados do atendimento na Nexora AI." },
-    { property: "og:title", content: "Visão geral — Nexora AI" },
+    { title: "Visão geral — KAVROM" },
+    { name: "description", content: "Acompanhe conversas, clientes e resultados do atendimento na KAVROM." },
+    { property: "og:title", content: "Visão geral — KAVROM" },
     { property: "og:description", content: "Indicadores e histórico de atendimento da sua empresa." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },

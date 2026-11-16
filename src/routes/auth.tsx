@@ -17,10 +17,10 @@ export const Route = createFileRoute("/auth")({
     s["mode"] === "signup" || s["mode"] === "forgot" ? { mode: s["mode"] } : {},
   head: () => ({
     meta: [
-      { title: "Entrar — Nexora AI" },
-      { name: "description", content: "Acesse ou crie sua conta Nexora AI." },
-      { property: "og:title", content: "Entrar — Nexora AI" },
-      { property: "og:description", content: "Acesse ou crie sua conta Nexora AI." },
+      { title: "Entrar — KAVROM" },
+      { name: "description", content: "Acesse ou crie sua conta KAVROM." },
+      { property: "og:title", content: "Entrar — KAVROM" },
+      { property: "og:description", content: "Acesse ou crie sua conta KAVROM." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

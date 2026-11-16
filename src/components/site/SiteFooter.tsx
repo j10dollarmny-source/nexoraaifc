@@ -11,9 +11,9 @@ export function SiteFooter() {
           <Link to="/precos" className="hover:text-foreground">Preços</Link>
           <Link to="/auth" className="hover:text-foreground">Login</Link>
         </nav>
-        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Nexora AI</p>
+        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} KAVROM</p>
       </div>
-      <div className="site-wordmark mx-auto max-w-6xl overflow-hidden px-5 pb-8" aria-hidden="true">Nexora AI</div>
+      <div className="site-wordmark mx-auto max-w-6xl overflow-hidden px-5 pb-8" aria-hidden="true">KAVROM</div>
     </footer>
   );
 }

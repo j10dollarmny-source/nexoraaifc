@@ -83,10 +83,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nexora AI" },
+      { title: "KAVROM" },
       { name: "description", content: "Plataforma de inteligência artificial para empresas." },
-      { name: "author", content: "Nexora AI" },
-      { property: "og:title", content: "Nexora AI" },
+      { name: "author", content: "KAVROM" },
+      { property: "og:title", content: "KAVROM" },
       { property: "og:description", content: "Plataforma de inteligência artificial para empresas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

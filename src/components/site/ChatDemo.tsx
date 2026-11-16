@@ -14,7 +14,7 @@ export function ChatDemo() {
         <div className="flex items-center gap-3 border-b border-border px-4 py-3">
           <span className="grid size-9 place-items-center rounded-full bg-primary/15 text-primary"><Bot className="size-5" /></span>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold">Assistente Nexora</p>
+            <p className="text-sm font-semibold">Assistente KAVROM</p>
             <p className="flex items-center gap-1.5 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-primary" /> Online 24h</p>
           </div>
           <span className="rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">Demonstração</span>

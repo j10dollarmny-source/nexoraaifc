@@ -8,9 +8,9 @@ import { FEATURES } from "@/lib/features";
 export const Route = createFileRoute("/solucoes")({
   head: () => ({
     meta: [
-      { title: "Soluções — Nexora AI" },
+      { title: "Soluções — KAVROM" },
       { name: "description", content: "Chatbot 24h, automação de mensagens, assistente de vendas e geração de textos com IA." },
-      { property: "og:title", content: "Soluções — Nexora AI" },
+      { property: "og:title", content: "Soluções — KAVROM" },
       { property: "og:description", content: "Ferramentas de IA para atendimento, vendas e tarefas empresariais." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

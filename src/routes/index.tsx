@@ -10,9 +10,9 @@ import chromeNexus from "@/assets/chrome-nexus.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nexora AI — Inteligência artificial para empresas" },
+      { title: "KAVROM — Inteligência artificial para empresas" },
       { name: "description", content: "Automatize processos, atenda clientes e aumente resultados com inteligência artificial." },
-      { property: "og:title", content: "Nexora AI — Inteligência artificial para empresas" },
+      { property: "og:title", content: "KAVROM — Inteligência artificial para empresas" },
       { property: "og:description", content: "Chatbots, automação de mensagens e assistente de vendas com IA para sua empresa." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -34,7 +34,7 @@ function Index() {
               <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
                 <span className="size-1.5 rounded-full bg-primary" /> Plataforma de IA para empresas
               </span>
-              <p className="mt-7 font-display text-lg font-semibold text-muted-foreground">Nexora AI</p>
+              <p className="mt-7 font-display text-lg font-semibold text-muted-foreground">KAVROM</p>
               <h1 className="mt-3 max-w-xl text-[42px] font-semibold leading-[1.08] sm:text-6xl lg:text-7xl">
                 Sua empresa mais <span className="text-muted-foreground">inteligente</span> começa aqui.
               </h1>

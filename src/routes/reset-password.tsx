@@ -10,9 +10,9 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: "Nova senha — Nexora AI" },
-      { name: "description", content: "Defina uma nova senha para sua conta Nexora AI." },
-      { property: "og:title", content: "Nova senha — Nexora AI" },
+      { title: "Nova senha — KAVROM" },
+      { name: "description", content: "Defina uma nova senha para sua conta KAVROM." },
+      { property: "og:title", content: "Nova senha — KAVROM" },
       { property: "og:description", content: "Defina uma nova senha para sua conta." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

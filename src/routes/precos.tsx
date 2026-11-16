@@ -8,9 +8,9 @@ import { PLANS, formatPrice } from "@/lib/plans";
 export const Route = createFileRoute("/precos")({
   head: () => ({
     meta: [
-      { title: "Preços — Nexora AI" },
+      { title: "Preços — KAVROM" },
       { name: "description", content: "Planos Grátis, Pro e Business para levar IA à sua empresa." },
-      { property: "og:title", content: "Preços — Nexora AI" },
+      { property: "og:title", content: "Preços — KAVROM" },
       { property: "og:description", content: "Comece grátis e evolua para automações avançadas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

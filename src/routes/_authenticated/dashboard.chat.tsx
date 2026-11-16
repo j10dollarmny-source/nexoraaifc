@@ -10,12 +10,12 @@ export const Route = createFileRoute("/_authenticated/dashboard/chat")({
   loader: ({ context }) => context.queryClient.ensureQueryData(threadsQuery),
   head: () => ({
     meta: [
-      { title: "Assistente IA — Nexora AI" },
+      { title: "Assistente IA — KAVROM" },
       {
         name: "description",
         content: "Converse com o assistente e consulte suas conversas privadas.",
       },
-      { property: "og:title", content: "Assistente IA — Nexora AI" },
+      { property: "og:title", content: "Assistente IA — KAVROM" },
       {
         property: "og:description",
         content: "Assistente empresarial com modelos gratuitos verificados.",

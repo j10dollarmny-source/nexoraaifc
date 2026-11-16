@@ -22,12 +22,12 @@ export const Route = createFileRoute("/_authenticated/dashboard/chat/$threadId")
   },
   head: () => ({
     meta: [
-      { title: "Conversa com IA — Nexora AI" },
+      { title: "Conversa com IA — KAVROM" },
       {
         name: "description",
         content: "Converse com modelos gratuitos de inteligência artificial.",
       },
-      { property: "og:title", content: "Conversa com IA — Nexora AI" },
+      { property: "og:title", content: "Conversa com IA — KAVROM" },
       { property: "og:description", content: "Conversa privada com o assistente empresarial." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

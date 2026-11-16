@@ -12,9 +12,9 @@ import { getAiStatus } from "@/lib/ai/status.functions";
 
 export const Route = createFileRoute("/_authenticated/dashboard/configuracoes")({
   head: () => ({ meta: [
-    { title: "Configurações do chatbot — Nexora AI" },
-    { name: "description", content: "Configure o nome, tom de voz e informações do seu assistente Nexora AI." },
-    { property: "og:title", content: "Configurações do chatbot — Nexora AI" },
+    { title: "Configurações do chatbot — KAVROM" },
+    { name: "description", content: "Configure o nome, tom de voz e informações do seu assistente KAVROM." },
+    { property: "og:title", content: "Configurações do chatbot — KAVROM" },
     { property: "og:description", content: "Personalize o atendimento do seu assistente empresarial." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
@@ -36,7 +36,7 @@ function Settings() {
       return data;
     },
   });
-  const [form, setForm] = useState({ bot_name: "Assistente Nexora", tone: "profissional", welcome_message: "Olá! Como posso ajudar você hoje?", instructions: "", always_on: true });
+  const [form, setForm] = useState({ bot_name: "Assistente KAVROM", tone: "profissional", welcome_message: "Olá! Como posso ajudar você hoje?", instructions: "", always_on: true });
   useEffect(() => { if (data) setForm({ bot_name: data.bot_name, tone: data.tone, welcome_message: data.welcome_message, instructions: data.instructions, always_on: data.always_on }); }, [data]);
 
   const save = useMutation({
