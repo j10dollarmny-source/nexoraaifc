@@ -16,8 +16,12 @@ import { Route as PrecosRouteImport } from './routes/precos'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard.index'
+import { Route as AuthenticatedDashboardChatRouteImport } from './routes/_authenticated/dashboard.chat'
 import { Route as AuthenticatedDashboardConfiguracoesRouteImport } from './routes/_authenticated/dashboard.configuracoes'
+import { Route as AuthenticatedDashboardChatIndexRouteImport } from './routes/_authenticated/dashboard.chat.index'
+import { Route as AuthenticatedDashboardChatThreadIdRouteImport } from './routes/_authenticated/dashboard.chat.$threadId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -53,10 +57,21 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedDashboardIndexRoute =
   AuthenticatedDashboardIndexRouteImport.update({
     id: '/',
     path: '/',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardChatRoute =
+  AuthenticatedDashboardChatRouteImport.update({
+    id: '/chat',
+    path: '/chat',
     getParentRoute: () => AuthenticatedDashboardRoute,
   } as any)
 const AuthenticatedDashboardConfiguracoesRoute =
@@ -64,6 +79,18 @@ const AuthenticatedDashboardConfiguracoesRoute =
     id: '/configuracoes',
     path: '/configuracoes',
     getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardChatIndexRoute =
+  AuthenticatedDashboardChatIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedDashboardChatRoute,
+  } as any)
+const AuthenticatedDashboardChatThreadIdRoute =
+  AuthenticatedDashboardChatThreadIdRouteImport.update({
+    id: '/$threadId',
+    path: '/$threadId',
+    getParentRoute: () => AuthenticatedDashboardChatRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -73,8 +100,12 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/solucoes': typeof SolucoesRoute
   '/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
+  '/dashboard/chat': typeof AuthenticatedDashboardChatRouteWithChildren
   '/dashboard/configuracoes': typeof AuthenticatedDashboardConfiguracoesRoute
   '/dashboard/': typeof AuthenticatedDashboardIndexRoute
+  '/dashboard/chat/$threadId': typeof AuthenticatedDashboardChatThreadIdRoute
+  '/dashboard/chat/': typeof AuthenticatedDashboardChatIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -82,8 +113,11 @@ export interface FileRoutesByTo {
   '/precos': typeof PrecosRoute
   '/reset-password': typeof ResetPasswordRoute
   '/solucoes': typeof SolucoesRoute
+  '/api/chat': typeof ApiChatRoute
   '/dashboard/configuracoes': typeof AuthenticatedDashboardConfiguracoesRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
+  '/dashboard/chat/$threadId': typeof AuthenticatedDashboardChatThreadIdRoute
+  '/dashboard/chat': typeof AuthenticatedDashboardChatIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -94,8 +128,12 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/solucoes': typeof SolucoesRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
+  '/_authenticated/dashboard/chat': typeof AuthenticatedDashboardChatRouteWithChildren
   '/_authenticated/dashboard/configuracoes': typeof AuthenticatedDashboardConfiguracoesRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
+  '/_authenticated/dashboard/chat/$threadId': typeof AuthenticatedDashboardChatThreadIdRoute
+  '/_authenticated/dashboard/chat/': typeof AuthenticatedDashboardChatIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -106,8 +144,12 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/solucoes'
     | '/dashboard'
+    | '/api/chat'
+    | '/dashboard/chat'
     | '/dashboard/configuracoes'
     | '/dashboard/'
+    | '/dashboard/chat/$threadId'
+    | '/dashboard/chat/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -115,8 +157,11 @@ export interface FileRouteTypes {
     | '/precos'
     | '/reset-password'
     | '/solucoes'
+    | '/api/chat'
     | '/dashboard/configuracoes'
     | '/dashboard'
+    | '/dashboard/chat/$threadId'
+    | '/dashboard/chat'
   id:
     | '__root__'
     | '/'
@@ -126,8 +171,12 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/solucoes'
     | '/_authenticated/dashboard'
+    | '/api/chat'
+    | '/_authenticated/dashboard/chat'
     | '/_authenticated/dashboard/configuracoes'
     | '/_authenticated/dashboard/'
+    | '/_authenticated/dashboard/chat/$threadId'
+    | '/_authenticated/dashboard/chat/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -137,6 +186,7 @@ export interface RootRouteChildren {
   PrecosRoute: typeof PrecosRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SolucoesRoute: typeof SolucoesRoute
+  ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -190,11 +240,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/dashboard/': {
       id: '/_authenticated/dashboard/'
       path: '/'
       fullPath: '/dashboard/'
       preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/chat': {
+      id: '/_authenticated/dashboard/chat'
+      path: '/chat'
+      fullPath: '/dashboard/chat'
+      preLoaderRoute: typeof AuthenticatedDashboardChatRouteImport
       parentRoute: typeof AuthenticatedDashboardRoute
     }
     '/_authenticated/dashboard/configuracoes': {
@@ -204,16 +268,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardConfiguracoesRouteImport
       parentRoute: typeof AuthenticatedDashboardRoute
     }
+    '/_authenticated/dashboard/chat/': {
+      id: '/_authenticated/dashboard/chat/'
+      path: '/'
+      fullPath: '/dashboard/chat/'
+      preLoaderRoute: typeof AuthenticatedDashboardChatIndexRouteImport
+      parentRoute: typeof AuthenticatedDashboardChatRoute
+    }
+    '/_authenticated/dashboard/chat/$threadId': {
+      id: '/_authenticated/dashboard/chat/$threadId'
+      path: '/$threadId'
+      fullPath: '/dashboard/chat/$threadId'
+      preLoaderRoute: typeof AuthenticatedDashboardChatThreadIdRouteImport
+      parentRoute: typeof AuthenticatedDashboardChatRoute
+    }
   }
 }
 
+interface AuthenticatedDashboardChatRouteChildren {
+  AuthenticatedDashboardChatThreadIdRoute: typeof AuthenticatedDashboardChatThreadIdRoute
+  AuthenticatedDashboardChatIndexRoute: typeof AuthenticatedDashboardChatIndexRoute
+}
+
+const AuthenticatedDashboardChatRouteChildren: AuthenticatedDashboardChatRouteChildren =
+  {
+    AuthenticatedDashboardChatThreadIdRoute:
+      AuthenticatedDashboardChatThreadIdRoute,
+    AuthenticatedDashboardChatIndexRoute: AuthenticatedDashboardChatIndexRoute,
+  }
+
+const AuthenticatedDashboardChatRouteWithChildren =
+  AuthenticatedDashboardChatRoute._addFileChildren(
+    AuthenticatedDashboardChatRouteChildren,
+  )
+
 interface AuthenticatedDashboardRouteChildren {
+  AuthenticatedDashboardChatRoute: typeof AuthenticatedDashboardChatRouteWithChildren
   AuthenticatedDashboardConfiguracoesRoute: typeof AuthenticatedDashboardConfiguracoesRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
 }
 
 const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
   {
+    AuthenticatedDashboardChatRoute:
+      AuthenticatedDashboardChatRouteWithChildren,
     AuthenticatedDashboardConfiguracoesRoute:
       AuthenticatedDashboardConfiguracoesRoute,
     AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
@@ -242,6 +340,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrecosRoute: PrecosRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SolucoesRoute: SolucoesRoute,
+  ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

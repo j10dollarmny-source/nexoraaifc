@@ -32,3 +32,4 @@ use the editor.
 - AI provider calls live only in `src/lib/ai/provider.server.ts` (server-only); UI reads connection state via `getAiStatus`. Why: keeps keys server-side and one swap point for the provider.
 - Plan data lives in `src/lib/plans.ts`, shared by pricing page and tests. Why: single source of truth for plans.
 - Visual redesigns reuse shared CSS tokens and existing site components; keep decorative bitmap art separate from the static chat demonstration. Why: consistent styling without changing behavior or implying a live integration.
+- Account assistant threads use route-derived IDs, RLS-protected UIMessage storage, AI Elements, and streaming OpenRouter calls in provider.server.ts; verify live zero pricing plus zero-price provider ceilings and reserve durable shared quota slots before every attempt. Why: keeps keys private, prevents paid selection and concurrent quota overshoot, and isolates the assistant from the unconnected customer chatbot.

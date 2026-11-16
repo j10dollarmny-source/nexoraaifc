@@ -8,6 +8,13 @@
       "when": 1794834286021,
       "tag": "0000_nexora_core",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794870926626,
+      "tag": "0001_private_ai_threads_and_free_usage",
+      "breakpoints": true
     }
   ]
 }
