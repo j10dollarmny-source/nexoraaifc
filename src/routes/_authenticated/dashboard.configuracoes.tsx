@@ -11,6 +11,14 @@ import { supabase } from "@/integrations/supabase/client";
 import { getAiStatus } from "@/lib/ai/status.functions";
 
 export const Route = createFileRoute("/_authenticated/dashboard/configuracoes")({
+  head: () => ({ meta: [
+    { title: "Configurações do chatbot — Nexora AI" },
+    { name: "description", content: "Configure o nome, tom de voz e informações do seu assistente Nexora AI." },
+    { property: "og:title", content: "Configurações do chatbot — Nexora AI" },
+    { property: "og:description", content: "Personalize o atendimento do seu assistente empresarial." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   component: Settings,
 });
 

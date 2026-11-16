@@ -10,11 +10,10 @@ const msgs = [
 export function ChatDemo() {
   return (
     <div className="relative mx-auto w-full max-w-md">
-      <div className="absolute -inset-6 rounded-[2rem] bg-glow opacity-80 blur-2xl" aria-hidden="true" />
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+      <div className="relative overflow-hidden rounded-lg border border-border bg-background shadow-card">
         <div className="flex items-center gap-3 border-b border-border px-4 py-3">
           <span className="grid size-9 place-items-center rounded-full bg-primary/15 text-primary"><Bot className="size-5" /></span>
-          <div className="flex-1">
+          <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold">Assistente Nexora</p>
             <p className="flex items-center gap-1.5 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-primary" /> Online 24h</p>
           </div>
@@ -23,7 +22,7 @@ export function ChatDemo() {
         <div className="space-y-3 px-4 py-5">
           {msgs.map((m, i) => (
             <div key={i} className={`flex animate-fade-up ${m.from === "user" ? "justify-end" : ""}`} style={{ animationDelay: `${300 + i * 500}ms` }}>
-              <p className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${m.from === "user" ? "rounded-br-md bg-gradient-primary text-primary-foreground" : "rounded-bl-md bg-secondary text-secondary-foreground"}`}>
+              <p className={`max-w-[80%] rounded-lg px-3.5 py-2.5 text-sm leading-relaxed ${m.from === "user" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
                 {m.text}
               </p>
             </div>

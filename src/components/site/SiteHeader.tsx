@@ -15,8 +15,8 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/75 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
+      <div className="mx-auto grid h-20 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 md:flex md:justify-between">
         <Logo />
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
@@ -35,9 +35,9 @@ export function SiteHeader() {
             </>
           )}
         </div>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Abrir menu">
+        <Button variant="ghost" size="icon" className="shrink-0 md:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open}>
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        </Button>
       </div>
       {open && (
         <nav className="animate-fade-up border-t border-border px-5 py-4 md:hidden">

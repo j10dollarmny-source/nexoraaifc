@@ -13,6 +13,7 @@ export function SiteFooter() {
         </nav>
         <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Nexora AI</p>
       </div>
+      <div className="site-wordmark mx-auto max-w-6xl overflow-hidden px-5 pb-8" aria-hidden="true">Nexora AI</div>
     </footer>
   );
 }

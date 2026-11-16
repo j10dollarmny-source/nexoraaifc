@@ -36,7 +36,7 @@ function Solucoes() {
         </div>
         <div className="mt-14 grid gap-4 md:grid-cols-3">
           {areas.map((a) => (
-            <div key={a.title} className="rounded-2xl border border-border bg-card p-7 shadow-card">
+            <div key={a.title} className="feature-card rounded-lg border border-border p-7 shadow-card">
               <h2 className="text-xl font-semibold">{a.title}</h2>
               <ul className="mt-5 space-y-3">
                 {a.points.map((p) => (

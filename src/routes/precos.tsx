@@ -32,17 +32,17 @@ function Precos() {
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {PLANS.map((p) => (
-              <div key={p.id} className={`relative flex flex-col rounded-2xl border bg-card p-7 shadow-card ${p.highlight ? "border-primary/60 shadow-glow" : "border-border"}`}>
-                {p.highlight && <span className="absolute -top-3 left-7 rounded-full bg-gradient-primary px-3 py-0.5 text-xs font-semibold text-primary-foreground">Mais popular</span>}
+              <div key={p.id} className={`relative flex flex-col rounded-lg border p-7 shadow-card ${p.highlight ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card"}`}>
+                {p.highlight && <span className="absolute -top-3 left-7 rounded-full border border-border bg-secondary px-3 py-0.5 text-xs font-semibold text-secondary-foreground">Mais popular</span>}
                 <h2 className="text-xl font-semibold">{p.name}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
-                <p className="mt-6"><span className="font-display text-4xl font-semibold">{formatPrice(p.price)}</span><span className="text-muted-foreground">/mês</span></p>
+                <p className={`mt-1 text-sm ${p.highlight ? "text-primary-foreground/65" : "text-muted-foreground"}`}>{p.tagline}</p>
+                <p className="mt-6"><span className="font-display text-4xl font-semibold">{formatPrice(p.price)}</span><span className={p.highlight ? "text-primary-foreground/65" : "text-muted-foreground"}>/mês</span></p>
                 <ul className="mt-6 flex-1 space-y-3">
                   {p.features.map((f) => (
-                    <li key={f} className="flex gap-3 text-sm text-muted-foreground"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{f}</li>
+                    <li key={f} className={`flex gap-3 text-sm ${p.highlight ? "text-primary-foreground/75" : "text-muted-foreground"}`}><Check className="mt-0.5 size-4 shrink-0" />{f}</li>
                   ))}
                 </ul>
-                <Button asChild variant={p.highlight ? "hero" : "outline"} className="mt-8 w-full">
+                <Button asChild variant={p.highlight ? "secondary" : "outline"} className="mt-8 w-full">
                   <Link to="/auth" search={{ mode: "signup" }}>{p.price === 0 ? "Começar grátis" : `Assinar ${p.name}`}</Link>
                 </Button>
               </div>
