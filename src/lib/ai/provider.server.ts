@@ -76,17 +76,15 @@ export async function streamFreeChat(options: {
     .order("created_at", { ascending: false })
     .limit(5);
   if (he) throw new ProviderError("Não foi possível carregar o histórico.", 500);
-  const { error: se } = await client
-    .from("ai_messages")
-    .upsert(
-      {
-        thread_id: threadId,
-        user_id: userId,
-        sdk_id: message.id,
-        message: JSON.parse(JSON.stringify(message)),
-      },
-      { onConflict: "thread_id,sdk_id" },
-    );
+  const { error: se } = await client.from("ai_messages").upsert(
+    {
+      thread_id: threadId,
+      user_id: userId,
+      sdk_id: message.id,
+      message: JSON.parse(JSON.stringify(message)),
+    },
+    { onConflict: "thread_id,sdk_id" },
+  );
   if (se) throw new ProviderError("Não foi possível salvar sua mensagem.", 500);
   const originals = [
     ...(history ?? []).reverse().map((r) => r.message as unknown as UIMessage),
@@ -165,17 +163,15 @@ export async function streamFreeChat(options: {
       error instanceof Error ? error.message : "Não foi possível concluir a resposta.",
     onFinish: async ({ responseMessage }) => {
       if (!responseMessage.parts.length) return;
-      const { error } = await client
-        .from("ai_messages")
-        .upsert(
-          {
-            thread_id: threadId,
-            user_id: userId,
-            sdk_id: responseMessage.id,
-            message: JSON.parse(JSON.stringify(responseMessage)),
-          },
-          { onConflict: "thread_id,sdk_id" },
-        );
+      const { error } = await client.from("ai_messages").upsert(
+        {
+          thread_id: threadId,
+          user_id: userId,
+          sdk_id: responseMessage.id,
+          message: JSON.parse(JSON.stringify(responseMessage)),
+        },
+        { onConflict: "thread_id,sdk_id" },
+      );
       if (error) throw new Error("Resposta recebida, mas o histórico não pôde ser salvo.");
     },
   });

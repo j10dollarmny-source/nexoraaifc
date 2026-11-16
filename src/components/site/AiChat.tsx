@@ -66,7 +66,7 @@ export function AiChat({
     if (!busy) textarea.current?.focus();
   }, [busy]);
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
+    <div data-thread-id={threadId} className="flex min-h-0 flex-1 flex-col">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 border-b border-border pb-4">
         <h1 className="min-w-0 text-xl font-semibold">Assistente IA</h1>
         <Select value={model} onValueChange={setModel} disabled={busy || !models.length}>
