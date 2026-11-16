@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- AI provider calls live only in `src/lib/ai/provider.server.ts` (server-only); UI reads connection state via `getAiStatus`. Why: keeps keys server-side and one swap point for the provider.
+- Plan data lives in `src/lib/plans.ts`, shared by pricing page and tests. Why: single source of truth for plans.
